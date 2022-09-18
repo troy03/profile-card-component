@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+    // Primary
+    --dark-cyan: hsl(185, 75%, 39%);
+    --dark-blue: hsl(229, 23%, 23%);
+    --grayish-blue: hsl(227, 10%, 46%);
+    // ### Neutral
+    --dark-gray: hsl(0, 0%, 59%);
+}
+
+//Mixin
+// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/ 
+
+$breakpoints: (
+  'small':  ( min-width:  767px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px )
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Kitty Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+ 
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// ----------------------------------------
+
+//Reset
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+  font-size: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+img, picture, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2 {
+  overflow-wrap: break-word;
+}
+
+h1, h2 {
+    font-weight: 700;
+    color: var(--dark-blue)
+}
+
+p {
+    font-weight: 400;
+    color: var(--grayish-blue);
+}
+hr {
+  margin-block-start: -1.5em;
+  margin-block-end: 1.2em;
+  background-color: var(--dark-gray);
+  opacity: 0.1;
+}
+
+body {
+  background-color: var(--dark-cyan);
+  background-image: 
+                  url(/images/bg-pattern-top.svg),
+                   url(/images/bg-pattern-bottom.svg);
+  background-size: cover;
+  background-position: 
+                    top -450px right 160px,
+                    bottom  -330px left 155px;
+  background-repeat: no-repeat;
+  background-blend-mode:hard-light;
+
+  @include respond-to('small'){
+  background-position: 
+            top -320px  right 330px ,
+            bottom -400px  left 330px;
+  }
+
+    @include respond-to('medium'){
+    background-position: 
+              top -430px  right 400px,
+              bottom  -500px left 470px;
+  }
+
+
+
+  @include respond-to('large'){
+    background-position: 
+              top -800px  right 740px,
+              bottom  -1030px left 570px;
+  }
+
+};
+
+.card {
+    max-width: 350px;
+    width: 87%;
+    background-color: #f0f0f0;
+    margin-block: 11em;
+    margin-inline: auto;
+    border-radius: 14px;
+    overflow: hidden;
+
+    &__background {
+        max-width: 100%;
+        border-radius: 14px;
+        object-fit: contain;
+       
+    }
+
+    &__icon {
+        border-radius: 100%; 
+        transform: translate(100%, -40%);
+        border: 5px solid #f0f0f0; 
+        margin-block-end: 1.2em;
+        z-index: 3;    
+        cursor: pointer;  
+        text-align: center;
+
+         @include respond-to('small') {
+          transform: translate(110%, -50%);
+          margin-block-end: 0.36em;
+          
+        }
+
+         @include respond-to('medium') {
+          opacity: 0.8;
+        }
+
+
+      
+       &:hover {
+        border-color: var(--dark-cyan);
+        opacity: 1;
+       }
+    }
+
+    &__info {
+        text-align: center;
+        margin-top: -2.8em;
+        font-weight: 700;
+
+        &--header {
+            font-size: 1.125rem;
+            margin-inline-start: -0.8em;
+            margin-block-end: 0.1em;
+        }
+
+        &--place {
+            margin-bottom: 3em;
+        }
+
+    }
+
+    &__number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5em;
+    
+    }
+
+    &__column {
+        flex-direction: column;
+        
+        &--header {
+            font-size: 1.15rem;
+            text-align: center;
+            cursor: pointer;  
+
+
+            &:hover {
+              color: hsl(185, 62%, 19%);
+              transition: transform 250ms linear;
+
+            }
+       
+        }
+
+        &--text {
+            font-size: 12px;
+            padding-block-end: 1.8em;
+            transition: transform 250ms linear;
+            cursor: pointer;  
+           
+           &:hover {
+            color:hsl(185, 75%, 39%)
+            
+           } 
+
+        }
+    }
+}
+
+//Footer 
+
+footer {
+  text-align: center;
+}
+
+.attribution { 
+font-size: 1rem; 
+text-align: center; 
+color: #000D6B;
+}
+  
+.attribution a { 
+  display: block;
+color: #1E3163;
+text-decoration: none;
+font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include respond-to('medium'){
+    display: inline-block;
+  }
+
+}
+
