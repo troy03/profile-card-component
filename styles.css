@@ -90,6 +90,7 @@ body {
   margin-inline: auto;
   border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25), 0 4px 16px -5px rgba(3, 33, 115, 0.1);
 }
 .card__background {
   max-width: 100%;
@@ -129,6 +130,9 @@ body {
   font-size: 1.125rem;
   margin-inline-start: -0.8em;
   margin-block-end: 0.1em;
+}
+.card__info--age {
+  font-weight: initial;
 }
 .card__info--place {
   margin-bottom: 3em;
