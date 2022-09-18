@@ -30,8 +30,8 @@ This is a perfect challenge to test your layout skills. The card layout doesn't 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/troy03/profile-card-component)
+- Live Site URL: [Add live site URL here](https://profile-card-component-troy03.netlify.app/)
 
 ## My process
 
