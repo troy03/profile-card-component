@@ -93,6 +93,11 @@ hr {
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background-color: var(--dark-cyan);
   background-image: 
                   url(/images/bg-pattern-top.svg),
@@ -119,7 +124,7 @@ body {
 
 
   @include respond-to('large'){
-    background-position: 
+      background-position: 
               top -800px  right 740px,
               bottom  -1030px left 570px;
   }
@@ -130,11 +135,10 @@ body {
     max-width: 350px;
     width: 87%;
     background-color: #f0f0f0;
-    margin-block: 11em;
-    margin-inline: auto;
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 50px 100px -20px rgba(50,50,93,0.25), 0 4px 16px -5px rgba(3, 33, 115, 0.1);
+    margin-bottom: 5em;
 
     &__background {
         max-width: 100%;
