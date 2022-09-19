@@ -31,7 +31,7 @@ This is a perfect challenge to test your layout skills. The card layout doesn't 
 ### Links
 
 - Solution URL: [Github](https://github.com/troy03/profile-card-component)
-- Live Site URL: [Netlify](profile-card-component-troy.netlify.app)
+- Live Site URL: [Netlify](https://profile-card-component-troy.netlify.app/)
 
 ## My process
 
